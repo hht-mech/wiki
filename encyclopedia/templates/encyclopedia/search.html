@@ -1,0 +1,25 @@
+{% extends 'encyclopedia/layout.html' %}
+
+{% block title %}
+    Search Results
+{% endblock %}
+
+{% block random %}
+    <a href="wiki/{{ random }}">Random Page</a>
+{% endblock %}
+
+{% block body %}
+    {% if search %}
+        <h2>Search Results</h2>
+        <ul>
+            {% for entry in entries %}
+                <li><a href="wiki/{{ entry }}">{{ entry }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% if not search %}
+        <ul>
+            <li>No results to display</li>
+        </ul>
+    {% endif %}
+{% endblock %}

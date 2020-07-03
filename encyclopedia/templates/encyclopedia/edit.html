@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit an Entry
+{% endblock %}
+
+{% block random %}
+    <a href="wiki/{{ random }}">Random Page</a>
+{% endblock %}
+
+{% block body %}
+    <h1>Edit an Entry</h1>
+    <form action="{% url 'encyclopedia:update' %}" method="POST">
+        {% csrf_token %}
+        <input class="mb-2" name="title" type="text" value="{{ title }}" style="width: 50%; height: 40px" autofocus>
+        <textarea name="content" style="height: 500px; width: 90%">{{ content }}</textarea> <br>
+        <input type="submit" value="Save">
+    </form>
+{% endblock %}
